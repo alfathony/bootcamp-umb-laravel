@@ -2,29 +2,39 @@
 
 @section('content')
 
-<h1>Buku Tamu</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h1>List Tamu</h1>
+  </div>
+  <div class="col-md-4">
+  <a href="{{ route('tambah_bukutamu') }}" class="btn btn-primary float-right">Tambah Tamu</a>
+  </div>
+</div>
 
-<form>
+<table class="table">
+  <tr>
+    <th>Nama Lengkap</th>
+    <th>Email</th>
+    <th>Alamat</th>
+    <th>Action</th>
+  </tr>
 
-    <div class="form-group">
-        <label for="nama">Nama Lengkap</label>
-        <input type="text" class="form-control" id="nama" placeholder="Masukan nama lengkap">
-    </div>
+  {{-- Looping pake foreach --}}
 
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="name@example.com">
-    </div>
+  @foreach ($getData as $item)
+    <tr>
+      <td>{{ $item->nama_lengkap }}</td>
+      <td>{{ $item->email }}</td>
+      <td>{{ $item->alamat }}</td>
+      <td>
+        <a href="{{ route('edit_bukutamu', $item->id)}}" class="btn btn-secondary btn-sm mr-2">Update</a>
+        <a href="{{ route('hapus_bukutamu', $item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+  @endforeach
+  
+  
+</table>
 
-    <div class="form-group">
-        <label for="alamat">Alamat</label>
-        <textarea class="form-control" id="alamat" rows="3"></textarea>
-    </div>
-
-    <div>
-        <button type="submit" class="btn btn-primary">Kirim</button>
-    </div>
-
-  </form>
 
 @endsection

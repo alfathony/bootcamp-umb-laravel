@@ -1,78 +1,44 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Belajar Laravel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Versi Laravel: Laravel 6
 
-## About Laravel
+Demo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Demo](public/demo.gif)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Konsep MVC
+MVC adalah design patern atau arsitektur pemrograman. MVC singakatan dari Model, View dan Controller
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Cara Kerja MVC di Laravel
 
-## Learning Laravel
+![konsep mvc](https://miro.medium.com/max/2348/1*xnuMvzXzmAxYXcRrd1Wj5Q.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Misalkan lo mau buat halaman website dengan URL: beritapagi.com/artikel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### 1. Buat route
+Buka file `routes/web.php` dan konfigurasi route nya
 
-## Laravel Sponsors
+#### 2. Buat Controller (C)
+File controller terletak di `app/Http/Controllers`, controller lebih berfungsi sebagai "pengontrol" atau logic yang akan di jalanin ketika ada yang memanggil (dari routes)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### 3. Buat View (V)
+File view terletak di `resources/views` berfungsi sebagai tampilan antar muka websitenya, kebanyakan lebih ke syntax HTML. Di View hanya menampilkan data-data yang di kirim dari controller saja, tidak banyak logic
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+#### 4. Buat Model (M)
+File model bawaannya terletak di `app` tetapi agar lebih rapih di buat lagi folder Model yang letaknya jadi `app/Models`. Model bertugas untuk berkomunikasi ke database management system. Di model lebih ke melayani permintaan kebutuhan data yang ada di database. Permintaan ini umumnya dari si Controller.
 
-## Contributing
+***
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Kebutuhan
+1. Pastikan sudah install composer https://getcomposer.org/
+2. Sudah install git (opsional)
 
-## Code of Conduct
+## Instalasi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Clone or download repository `git clone https://github.com/alfathony/bootcamp-umb-laravel.git`
+2. Duplikat file `.env.example` dan ganti nama menjadi `.env`
+3. Jalankan `composer install`
+4. Jalankan `php artisan key:generate`
+5. Pada file `.env` atur konseksi databasenya
+6. Jalankan migration `php artissan migrate` maka database akan ke import secara otomatis
+7. Jalankan project di browser Anda atau bisa menggunakan `php artisan serve`
